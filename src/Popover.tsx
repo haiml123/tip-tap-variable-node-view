@@ -12,7 +12,8 @@ const Popover: FC<PopoverProps> = ({
                                      position,
                                      onClick,
                                      onHover,
-                                     closeOnClickOutside = true
+                                     onClosed,
+                                     closeOnClickOutside = true,
                                          }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [popoverPosition, setPopoverPosition] = useState<{ top: number; left: number, opacity: number }>({
@@ -56,6 +57,9 @@ const Popover: FC<PopoverProps> = ({
         const handleOutsideClick = (event: Event) => {
             if (popoverRef.current && !popoverRef.current.contains(event.target as Node)) {
                 setIsOpen(false);
+                if (onClosed) {
+                    onClosed();
+                }
             }
         };
 

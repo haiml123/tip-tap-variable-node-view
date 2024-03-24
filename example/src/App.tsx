@@ -4,7 +4,7 @@ import './App.css';
 import StarterKit from '@tiptap/starter-kit'
 import {useEditor, EditorContent} from "@tiptap/react";
 import {Dropcursor} from "@tiptap/extension-dropcursor";
-import {OptionType, VariableNodeView, variableNodeViewName} from "tip-tap-variable-node-view";
+import {OptionType, VariableNodeView, variableNodeViewName} from "./tip-tap-variable-node-view";
 
 function App() {
     const ref = useRef<any>();

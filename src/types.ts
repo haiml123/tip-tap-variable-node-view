@@ -36,6 +36,7 @@ export interface PopoverProps {
     position?: 'top' | 'bottom' | 'left' | 'right';
     closeOnClickOutside?: boolean;
     closeOnscroll?: boolean;
-    onHover?: boolean,
-    onClick?: boolean
+    onHover?: boolean;
+    onClick?: boolean;
+    onClosed?: ()=> void;
 }
