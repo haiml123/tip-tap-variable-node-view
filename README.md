@@ -5,5 +5,5 @@ A fresh Tiptap extension.
 ## Installation
 
 ```bash
-npm install variableExtension
+npm install tip-tap-variable-node-view
 ```
