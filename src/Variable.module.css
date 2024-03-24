@@ -1,0 +1,42 @@
+
+.popover {
+    position: fixed;
+}
+
+.variableForm {
+    display: flex;
+    width: 100%;
+    background: white;
+    border-radius: 8px;
+    align-items: center;
+}
+
+.fieldWrapper {
+    display: flex;
+    align-items: center;
+    padding: 7px;
+}
+
+.variableFromField {
+    appearance: none;
+    /* safari */
+    -webkit-appearance: none;
+    /* other styles for aesthetics */
+    width: 100%;
+    font-size: 1.15rem;
+    padding: 0.375em 1em 0.375em 1em;
+    background-color: #fff;
+    border: 1px solid #caced1;
+    border-radius: 0.25rem;
+    color: #000;
+    cursor: pointer;
+}
+
+.variableChip {
+    display: inline-block;
+    border-radius: 8px;
+    color: white;
+    background: #189bffbf;
+    border: solid 1px #083a61;
+    padding: 2px 4px;
+}

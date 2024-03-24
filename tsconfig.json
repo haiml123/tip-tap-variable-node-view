@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "plugins": [{"name": "typescript-plugin-css-modules"}],
+    "target": "ESNext", // Use ESNext to ensure compatibility with Rollup
+    "module": "ESNext", // Use ESNext module format
+    "lib": ["es2015", "dom"],
+    "moduleResolution": "node", // Resolve modules using Node.js style
+    "jsx": "react",
+    "declaration": true,
+    "noEmit": true,
+    "esModuleInterop": true, // Ensure compatibility with modules using default imports and exports
+    "allowSyntheticDefaultImports": true, // Allow default imports from modules with no default export
+    "resolveJsonModule": true, // Enable importing JSON files
+    "isolatedModules": false, // Set to false to allow type checking of all project files together
+    "strict": true, // Enable strict type checking
+    "types": ["node", "react", "react-dom"] // Include necessary type definitions
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"], // Include TypeScript files in src directory
+  "exclude": ["node_modules"] // Exclude node_modules directory from TypeScript compilation
+}
