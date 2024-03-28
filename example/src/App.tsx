@@ -4,7 +4,7 @@ import './App.css';
 import StarterKit from '@tiptap/starter-kit'
 import {useEditor, EditorContent} from "@tiptap/react";
 import {Dropcursor} from "@tiptap/extension-dropcursor";
-import {OptionType, VariableNodeView, variableNodeViewName} from "./tip-tap-variable-node-view";
+import {OptionType, VariableNodeView, variableNodeViewName} from "tip-tap-variable-node-view";
 
 function App() {
     const ref = useRef<any>();
@@ -27,7 +27,7 @@ function App() {
     <h2>Variable Node View</h2>
    
    <p>
-   <react-component></react-component>
+   <variable-node></variable-node>
     </p>
     <p>
       Did you see that? That’s a React  component. We are really living in the future.
@@ -40,6 +40,7 @@ function App() {
             VariableNodeView({
                 options
             }),
+
             StarterKit.configure({
                 // Configure an included extension
                 heading: {

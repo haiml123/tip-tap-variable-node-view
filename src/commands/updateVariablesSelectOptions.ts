@@ -1,5 +1,5 @@
 import { RawCommands } from "@tiptap/react";
-import { variableNodeViewName } from "../variable.nodeView";
+import { variableNodeName } from "../variable.nodeView";
 import { updateAllNodesAttributesByCondition } from "./updateAllNodesAttributesByCondition";
 
 declare module '@tiptap/core' {
@@ -16,6 +16,6 @@ declare module '@tiptap/core' {
 }
 
 export const updateVariableSelectOptions: RawCommands['updateVariableSelectOptions'] = (options: any[]) => {
-    const conditionFn = (node: any)=> node.type.name === variableNodeViewName;
+    const conditionFn = (node: any)=> node.type.name === variableNodeName;
     return updateAllNodesAttributesByCondition(conditionFn, {options})
 }

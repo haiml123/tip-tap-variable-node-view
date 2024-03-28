@@ -2,25 +2,27 @@ import { mergeAttributes, Node } from '@tiptap/core';
 import { ReactNodeViewRenderer } from '@tiptap/react';
 import VariableNode from './VariableNode';
 import Popover from './Popover';
-import {updateAllNodesAttributesByCondition} from './commands/updateAllNodesAttributesByCondition';
+import { updateAllNodesAttributesByCondition } from './commands/updateAllNodesAttributesByCondition';
 import { updateVariableSelectOptions } from './commands/updateVariablesSelectOptions';
 import { VariableExtensionConfig } from './types';
 
-export const variableNodeViewName = 'variable-extension';
+export const variableNodeName = 'variable-extension';
+
+export const variableNodeTag = 'variable-node';
 
 export function VariableNodeView(config?: VariableExtensionConfig) {
     const defaultConfig: VariableExtensionConfig = {
+        variableNodeTag,
         PopoverComponent: Popover,
     };
 
     const mergedConfig = {...defaultConfig, ...config};
 
     return Node.create({
-        name: variableNodeViewName,
+
+        name: variableNodeName,
 
         draggable: true,
-
-        content: 'inline*',
 
         group: 'inline',
 
@@ -36,6 +38,7 @@ export function VariableNodeView(config?: VariableExtensionConfig) {
                 updateVariableSelectOptions
             }
         },
+
         addAttributes() {
             return {
                 viewMode: {
@@ -51,26 +54,17 @@ export function VariableNodeView(config?: VariableExtensionConfig) {
         parseHTML() {
             return [
                 {
-                    tag: 'react-component',
+                    tag: mergedConfig.variableNodeTag || variableNodeTag
                 },
             ]
         },
 
         renderHTML(props) {
-            return ['react-component', mergeAttributes(props.HTMLAttributes)]
+            return [mergedConfig.variableNodeTag || variableNodeTag, mergeAttributes(props.HTMLAttributes)]
         },
 
         addNodeView() {
-            const _this = this;
-            return ReactNodeViewRenderer(VariableNode, {
-                stopEvent({event}: {event: Event}) {
-                    const { draggable } = _this.type.spec;
-                    if (/dragstart|dragover|drangend|drop/.test(event.type)) return false;
-                    return !(draggable && /mousedown|drag|drop/.test(event.type));
-                },
-
-                ignoreMutation() { return true; }
-            })
+            return ReactNodeViewRenderer(VariableNode)
         },
     })
 }

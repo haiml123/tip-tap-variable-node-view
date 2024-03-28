@@ -13,6 +13,7 @@ export const OptionType = {
 export type OptionTypes = 'string' | 'number' | 'date';
 
 export type VariableExtensionConfig = {
+    variableNodeTag?: string;
     PopoverComponent?: React.FC<PopoverProps>,
     options?: VariableOption[]
 }
